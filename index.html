@@ -1,21 +1,433 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>NullenWorks</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NullenWorks | Portfolio</title>
+
+  <style>
+    :root {
+      --primary: #6c0b82;
+      --accent: #0b5d82;
+      --bg: #09090f;
+      --card: #141420;
+      --text: #f5f5f5;
+      --muted: #b6b6c8;
+      --border: rgba(255,255,255,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(108,11,130,0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(11,93,130,0.3), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      line-height: 1;
+      margin: 0;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 25px auto;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+    }
+
+    section {
+      padding: 55px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 700px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(20,20,32,0.82);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      color: #d8d8e8;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--border);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: white;
+      font-weight: 800;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      padding: 35px 0;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body style="background:#111;color:white;font-family:Arial;padding:40px;">
 
-<h1 style="color:#6c0b82;">NullenWorks</h1>
+<body>
+  <header class="container">
+    <div class="logo">Nullen<span>Works</span></div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+    </nav>
+  </header>
 
-<p>Developer • Roblox Creator • Python Projects</p>
+  <main>
+    <section class="hero container">
+      <div class="badge">Developer • Roblox Creator • Python Tools</div>
+      <h1>Building projects under <span>NullenWorks</span></h1>
+      <p>
+        I build practical and experimental projects across Roblox development,
+        Python automation, web platforms, UI systems, and gaming-focused tools.
+        This portfolio showcases some of my current and previous work.
+      </p>
 
-<h2>Projects</h2>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn secondary" href="https://github.com/BasicallyTrash" target="_blank">GitHub Profile</a>
+      </div>
+    </section>
 
-<ul>
-    <li>StatShark GUI</li>
-    <li>MadPhonk</li>
-    <li>War Thunder Content</li>
-</ul>
+    <section id="projects" class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        A selection of projects I have built, worked on, or currently develop.
+      </p>
 
+      <div class="grid">
+        <div class="card">
+          <h3>Brain Rot Minesweeper</h3>
+          <p>
+            A Roblox game project mixing classic minesweeper-style gameplay with
+            modern internet humour and brainrot-inspired presentation. Built as
+            an experimental game concept focused on fun, quick interactions, and
+            replayable mechanics.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Roblox</span>
+            <span class="tag">Game Design</span>
+            <span class="tag">Lua</span>
+            <span class="tag">Experimental</span>
+          </div>
+          <a class="project-link" href="https://www.roblox.com/games/80212436885241/Brain-Rot-Minesweeper" target="_blank">
+            View Project →
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Cafe Development Showcase</h3>
+          <p>
+            A Roblox cafe development showcase based on previous cafe/community
+            projects. This work demonstrates experience with Roblox environments,
+            interactive spaces, UI concepts, and roleplay-focused game design.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Roblox</span>
+            <span class="tag">Cafe Systems</span>
+            <span class="tag">Community Games</span>
+            <span class="tag">UI</span>
+          </div>
+          <a class="project-link" href="https://www.roblox.com/games/135172405005422/Cafe-Development-Showcase" target="_blank">
+            View Project →
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Training Development Showcase</h3>
+          <p>
+            A Roblox training showcase designed to demonstrate structured
+            training environments, development layouts, and systems commonly
+            used in Roblox group/community games.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Roblox</span>
+            <span class="tag">Training Systems</span>
+            <span class="tag">Showcase</span>
+            <span class="tag">Game Development</span>
+          </div>
+          <a class="project-link" href="https://www.roblox.com/games/100800099445189/Training-dev-showcase" target="_blank">
+            View Project →
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>StatSharlie</h3>
+          <p>
+            A Python desktop tool built around player stat lookup, automation,
+            OCR, browser control, caching, and a custom user interface. The goal
+            was to make stat checking faster, cleaner, and easier to use during
+            gaming sessions.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Automation</span>
+            <span class="tag">OCR</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">Custom UI</span>
+          </div>
+          <a class="project-link" href="https://github.com/BasicallyTrash" target="_blank">
+            View GitHub →
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Gamorite.gg</h3>
+          <p>
+            A web-based gaming and entertainment project currently in
+            development. Gamorite.gg is part of my newer work exploring web
+            projects, gaming communities, and experimental online platforms.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Web Project</span>
+            <span class="tag">Gaming</span>
+            <span class="tag">Community</span>
+            <span class="tag">In Development</span>
+          </div>
+          <a class="project-link" href="https://gamorite.gg" target="_blank">
+            Visit Site →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-box">
+        <div class="card">
+          <h3>Developer & project builder</h3>
+          <p>
+            I’m a computing-focused developer who enjoys building real projects
+            instead of just learning theory. My work includes Roblox games,
+            Python automation tools, gaming-related software, and web projects.
+          </p>
+          <p>
+            I have studied computing at college and performed strongly in my
+            course, while also building independent projects outside of education.
+            My main focus is practical development: making tools, systems, and
+            projects that actually do something useful or interesting.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Focus Areas</h3>
+          <p>
+            I am especially interested in automation, game systems, UI design,
+            web platforms, and tools for gaming communities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <h2 class="section-title">Skills & Tools</h2>
+      <p class="section-subtitle">
+        Technologies and areas I have worked with across my projects.
+      </p>
+
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Roblox Studio</span>
+        <span class="skill">Lua / Luau</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Playwright</span>
+        <span class="skill">OCR</span>
+        <span class="skill">UI Design</span>
+        <span class="skill">Automation</span>
+        <span class="skill">Game Development</span>
+        <span class="skill">Web Projects</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 NullenWorks. Built with GitHub Pages.</p>
+  </footer>
 </body>
 </html>
