@@ -36,6 +36,6 @@ https://basicallytrash.github.io/NullenWorks/
 
 ## About
 
-I have around 4 years of practical development experience creating systems, tools, and independent projects, alongside an even longer background modifying and troubleshooting older Roblox systems dating back to the mid-2010s.
+I have around 4-5 years of practical development experience creating systems, tools, and independent projects, alongside an even longer background modifying and troubleshooting older Roblox systems dating back to the mid-2010s.
 
 My main focus is building practical, functional, and interesting projects while continuing to expand my experience across development and software design.
