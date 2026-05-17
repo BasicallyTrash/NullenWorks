@@ -1,0 +1,24 @@
+body {
+    background: #111;
+    color: white;
+    font-family: Arial;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    color: #6c0b82;
+}
+
+.card {
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 1px solid #0b5d82;
+}
