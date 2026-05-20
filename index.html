@@ -147,11 +147,17 @@
       max-width: 700px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+   .grid {
+      columns: 3 260px;   /* 3 cols max, min 260px each */
+      column-gap: 22px;
     }
+
+  .grid .card {
+    break-inside: avoid;      /* stops cards splitting across columns */
+    margin-bottom: 22px;
+    display: inline-block;    /* needed for break-inside to work reliably */
+    width: 100%;
+  }
 
     .card {
       background: rgba(20,20,32,0.82);
