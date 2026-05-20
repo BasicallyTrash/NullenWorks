@@ -132,12 +132,42 @@
       filter: brightness(1.15);
     }
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 22px;
-      }
-    
+    section {
+      padding: 55px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 700px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(20,20,32,0.82);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.22);
+    }
+
     .card h3 {
       margin-top: 0;
       font-size: 1.35rem;
@@ -346,19 +376,19 @@
         <div class="card">
   <h3>WT Plotter Air Edition</h3>
 
-<div class="buttons" style="justify-content: flex-start; margin-top: 18px;">
-  <a class="btn secondary"
-     href="https://media.discordapp.net/attachments/1472386876231913493/1506704278902014103/image.png?ex=6a0f3b35&is=6a0de9b5&hm=b7e84db930800cbdda6a7f166b8f0db3cb69237583f22d90f47f622051b4dabf&=&format=webp&quality=lossless&width=1433&height=877"
-     target="_blank">
-    Screenshot 1
-  </a>
+  <div style="display: grid; gap: 12px; margin-bottom: 18px;">
+    <img
+      src="https://media.discordapp.net/attachments/1472386876231913493/1506704278902014103/image.png?ex=6a0f3b35&is=6a0de9b5&hm=b7e84db930800cbdda6a7f166b8f0db3cb69237583f22d90f47f622051b4dabf&=&format=webp&quality=lossless&width=1433&height=877"
+      alt="WT Plotter Air Edition interface screenshot"
+      style="width: 100%; border-radius: 16px; border: 1px solid var(--border);"
+    />
 
-  <a class="btn secondary"
-     href="https://media.discordapp.net/attachments/1472386876231913493/1506704548385919230/image.png?ex=6a0f3b75&is=6a0de9f5&hm=7931d428122cd965385e1f66679595fb48ebeea199e8bfa8a309b11201857947&=&format=webp&quality=lossless&width=1060&height=742"
-     target="_blank">
-    Screenshot 2
-  </a>
-</div>
+    <img
+      src="https://media.discordapp.net/attachments/1472386876231913493/1506704548385919230/image.png?ex=6a0f3b75&is=6a0de9f5&hm=7931d428122cd965385e1f66679595fb48ebeea199e8bfa8a309b11201857947&=&format=webp&quality=lossless&width=1060&height=742"
+      alt="WT Plotter Air Edition replay plotting screenshot"
+      style="width: 100%; border-radius: 16px; border: 1px solid var(--border);"
+    />
+  </div>
 
   <p>
     A private tactical replay visualization and telemetry tool built from an
@@ -426,32 +456,20 @@
         Technologies and areas I have worked with across my projects.
       </p>
 
-     <div class="skills">
-  <span class="skill">Roblox Studio</span>
-  <span class="skill">Rojo</span>
-  <span class="skill">Lua</span>
-  <span class="skill">Luau</span>
-  <span class="skill">Python</span>
-  <span class="skill">C++</span>
-  <span class="skill">Qt6</span>
-  <span class="skill">CMake</span>
-  <span class="skill">Visual Studio Build Tools</span>
-  <span class="skill">Windows Deployment</span>
-  <span class="skill">Telemetry Systems</span>
-  <span class="skill">Replay Analysis</span>
-  <span class="skill">HTML</span>
-  <span class="skill">CSS</span>
-  <span class="skill">Git</span>
-  <span class="skill">GitHub</span>
-  <span class="skill">Playwright</span>
-  <span class="skill">OCR</span>
-  <span class="skill">UI Design</span>
-  <span class="skill">Automation</span>
-  <span class="skill">Game Development</span>
-  <span class="skill">Web Projects</span>
-  <span class="skill">Desktop Applications</span>
-  <span class="skill">Reverse Engineering</span>
-</div>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Roblox Studio</span>
+        <span class="skill">Lua / Luau</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Playwright</span>
+        <span class="skill">OCR</span>
+        <span class="skill">UI Design</span>
+        <span class="skill">Automation</span>
+        <span class="skill">Game Development</span>
+        <span class="skill">Web Projects</span>
+      </div>
     </section>
   </main>
 <section class="container">
