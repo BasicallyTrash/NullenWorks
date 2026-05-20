@@ -132,16 +132,12 @@
       filter: brightness(1.15);
     }
 
-   .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: start;
-  gap: 22px;
-}
-
-.grid .card {
-  height: fit-content;
-}
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 22px;
+      }
+    
     .card h3 {
       margin-top: 0;
       font-size: 1.35rem;
