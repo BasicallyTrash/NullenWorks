@@ -132,14 +132,15 @@
       filter: brightness(1.15);
     }
 
-    .grid {
-  columns: 3 260px;
-  column-gap: 22px;
+   .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 22px;
 }
 
 .grid .card {
-  break-inside: avoid;
-  margin-bottom: 22px;
+  height: fit-content;
 }
     .card h3 {
       margin-top: 0;
