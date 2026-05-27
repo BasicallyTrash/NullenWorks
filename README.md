@@ -18,11 +18,11 @@ This website acts as a central hub for my development work, projects, experiment
 
 ## Areas of Interest
 
+- Roblox
 - Python development
 - Automation tools
 - OCR systems
 - UI/UX design
-- Roblox development
 - Web projects
 - Gaming-focused software
 
